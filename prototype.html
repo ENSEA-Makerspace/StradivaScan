@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Prototype et début" />
+        <meta name="author" content="Mattéo DOFFE" />
+        <title>Prototype et début du projet</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Projet : </div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="prototype.html">Prototype et début</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="python.html">Programme Python</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="sysrotation.html">Système de rotation</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="Bricolage_imprimante.html">Changements accordés à l'imprimante 3D</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="rail.html">Rail de translation de la guitare</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Navigation</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#!">Action</a>
+                                        <a class="dropdown-item" href="#!">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#!">Something else here</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4">Début du projet, le prototype :</h1>
+                    <p>Première version de la machine qui commandera la caméra endoscopique (qui passe pour le moment dans un trou proche de la taille de celui de la guitare). Le modèle final sera aussi sur le raille de l'imprimante 3D. L'endoscope sera potentiellement différent car il ne répond pas à tous les critères (voir plus loin).<br/>
+                    <div class="centre">
+                        <img src="PhotosVideos\20240605_4.jpg" style="width:400px;"/>
+                        <img src="PhotosVideos\20240605_5.jpg" style="width:400px;"/>
+                        <img src="PhotosVideos\20240605_3.jpg" style="width:400px;"/> 
+                    </div>
+                    </p>
+
+                    <p>Avec le logiciel Pronterface, j'envoie un fichier G-code qui fais avancer à intervalle régulier sur l'axe X l'imprimante 3D. Les photos sont prises pour le moment manuellement et aucune rotation n'est encore effectuée. Vidéos avec les 2 points de vues (endoscope et extérieur) une fois le G-code envoyé :
+                    <div class="center">
+                        <video width="300" controls> <source src="PhotosVideos\1ereAvanceAuto.mp4" type="video/mp4"></video>
+                        <video width="300" controls> <source src="PhotosVideos\ProtoAutoPOVExterne.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="centre">
+                        Le code envoyé étant le suivant : </br>
+                        <img src="PhotosVideos\Screen ProtoAutomatisée.png" style="width:200px;"/> 
+                    </div>
+                    </p>
+                    </br>
+                    <p>
+                        <ul> <h6>À ce stade, on peut déjà identifier plusieurs problèmes : </h6>
+                        <li> La trajectoire n'est pas strictement une ligne droite due au fait que le câble de l'endoscope est semi-rigide et il s'effondre sous son poids</li>
+                        <li> La prise de photo n'est pas encore automatisée mais manuelle, ce qui présente un risque de bouger la caméra mais sera aussi très fastidieux pour le projet final étant donné le nombre de photos nécessaires.</li>
+                        <li> L'imprimante 3D ne permet pas d'effectuer la rotation, il faudra rajouter un système avec un autre moteur pas à pas.</li>
+                        <li> Il est impossible de filmer les côtés pour l'instant. </li>
+                        <li> La guitare fait 50cm de long, or le rail actuel de l'imprimante ne permet qu'une translation sur environ 30cm.</li>
+                        <li> Même à la hauteur la plus basse, la sonde semble être trop haute pour pouvoir entrer par le trou de la guitare (quand l'imprimante et la guitare sont posées sur une même table)</li>
+                        </ul>
+                        <ul> <h6> Voilà des pistes de solutions possibles :</h6>
+                        <li> Acheter un endoscope avec une tête de caméra qui peut tourner à 180° (contrôlable à distance depuis le moniteur de l'endoscope). Cela permettrait de prendre des photos latérales. Ce genre d'endoscope est cependant plus couteux. Des endoscopes moins couteux et avec des caméras latérales existent mais la distance focale des lentilles latérales est trop petite pour pouvoir prendre des photos nettes des côtés de la guitare.</li>
+                        <li> Imprimer en 3D un petit support avec un trou, permettant de tenir le câble de la sonde pour ne pas toucher les rebords du trou et maintenir une trajectoire la plus droite possible.</li>
+                        <li> Pour la rotation : démonter l’extrudeuse, en gardant le “chariot”, pour la remplacer par un moteur pas à pas (potentiellement celui de l’axe Y qui ne nous sert pas). On pourra ensuite imprimer en 3D un support pour le câble de la sonde qui sera attaché à une roue dentée, reliée à un pignon.</li>
+                        <li> On peut essayer de mettre l'endoscope dans un tube en métal pour assurer une trajectoire rectiligne. Il faudra vérifier cependant si cela rendre toujours dans le diamètre du trou de la guitare.</li>
+                        <li> Il faut apporter des modifications à l'imprimante 3D pour permettre une translation de 50cm et pour accueillir le système de rotation.</li>
+                        </ul>
+                    </p>
+                    <p> De plus, l'idée pour le projet final serait de pouvoir programmer différents paramètres (nombre de photos, nombre d'arrêts selon l'axe X etc.) et lancer un essai d'endoscopie puis, selon les résultats, changer certains paramètres.</br>
+                    Pour cela, on va coder un script python qui enverra des lignes de G-code, en fonction des paramètres choisis.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
